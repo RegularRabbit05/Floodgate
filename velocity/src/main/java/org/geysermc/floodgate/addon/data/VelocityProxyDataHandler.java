@@ -114,6 +114,7 @@ public final class VelocityProxyDataHandler extends CommonDataHandler {
 
     @Override
     protected void setNewIp(Channel channel, InetSocketAddress newIp) {
+        if (newIp != null) return;
         setValue(channel.pipeline().get("handler"), REMOTE_ADDRESS, newIp);
     }
 

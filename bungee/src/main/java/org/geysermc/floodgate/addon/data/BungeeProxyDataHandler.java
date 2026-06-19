@@ -65,6 +65,7 @@ public class BungeeProxyDataHandler extends CommonDataHandler {
 
     @Override
     protected void setNewIp(Channel channel, InetSocketAddress newIp) {
+        if (newIp != null) return;
         HandlerBoss handlerBoss = ctx.pipeline().get(HandlerBoss.class);
         // InitialHandler extends PacketHandler and implements PendingConnection
         InitialHandler connection = ReflectionUtils.getCastedValue(handlerBoss, HANDLER);
